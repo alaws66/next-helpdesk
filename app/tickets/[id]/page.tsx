@@ -1,3 +1,22 @@
+import { TTicket } from '@/app';
+import { notFound } from 'next/navigation';
+
+type TParams = {
+  params: {
+    id: string;
+  }
+}
+
+export async function generateStaticParams() {
+  const res = await fetch('http://localhost:4000/tickets');
+
+  const tickets = await res.json();
+
+  return tickets.map((ticket: TTicket) => ({
+    id: ticket.id
+  }));
+}
+
 // fetch json data
 const getTicket = async (id: string) => {
   const res = await fetch('http://localhost:4000/tickets/' + id, {
@@ -6,17 +25,15 @@ const getTicket = async (id: string) => {
     }
   });
 
+  if (!res.ok) {
+    notFound();
+  }
+
   return res.json();
 }
 
-type TParams = {
-  params: {
-    id: string;
-  }
-}
-
 export default async function TicketDetails({ params }: TParams) {
-  const ticket = await getTicket(params.id);
+  const ticket: TTicket = await getTicket(params.id);
 
   return (
     <main>

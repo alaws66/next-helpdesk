@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TTicket } from '..';
 
 // fetch json data
 const getTickets = async () => {
@@ -9,14 +10,6 @@ const getTickets = async () => {
   });
 
   return res.json();
-}
-
-type TTicket = {
-  id: string;
-  title: string;
-  body: string;
-  priority: string;
-  user_email: string;
 }
 
 export default async function TicketList() {
