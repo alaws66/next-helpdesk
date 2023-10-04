@@ -5,16 +5,19 @@
 /* base styles */
 body {
   background: #eef0f5;
-  @apply text-gray-500 m-8;
+  @apply text-gray-500 mx-3 my-8 sm:m-8;
 }
 h1, h2 {
-  @apply font-bold text-primary text-lg;
+  @apply font-bold text-primary text-base sm:text-lg;
+}
+p {
+  @apply text-sm sm:text-base;
 }
 main {
   @apply max-w-5xl my-12 mx-auto px-8;
 }
 main > h2 {
-  @apply mb-4 pb-2 text-base ;
+  @apply mb-4 pb-2 text-sm sm:text-base ;
 }
 p > a {
   @apply text-primary underline;
@@ -45,7 +48,7 @@ button {
     px-3 py-2 
     rounded-sm 
     flex justify-between items-center gap-2
-    text-sm;
+    text-xs sm:text-sm;
 }
 button:hover {
   @apply bg-opacity-90;
@@ -108,11 +111,11 @@ form button {
 }
 .card h3 {
   @apply 
-    font-bold text-gray-700 text-sm 
+    font-bold text-gray-700 text-xs sm:text-sm 
     mb-0;
 }
 .card p {
-  @apply my-4 text-sm leading-6;
+  @apply my-4 text-xs sm:text-sm leading-6;
 }
 
 /* pill styles */
