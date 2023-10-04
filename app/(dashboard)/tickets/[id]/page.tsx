@@ -50,5 +50,5 @@ export default async function TicketDetails({ params }: TParams) {
         </div>
       </div>
     </main>
-  )
+  );
 }

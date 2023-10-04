@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { TTicket } from '..';
+import { TTicket } from '../..';
 
 // fetch json data
 const getTickets = async () => {

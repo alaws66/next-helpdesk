@@ -66,5 +66,5 @@ export default function CreateForm() {
         <span>{isLoading ? 'Adding...' : 'Add Ticket'}</span>
       </button>
     </form>
-  )
+  );
 }

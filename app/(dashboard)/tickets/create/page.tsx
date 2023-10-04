@@ -6,5 +6,5 @@ export default function CreateTicket() {
       <h2 className="text-primary text-center">Add a New Ticket</h2>
       <CreateForm />
     </main>
-  )
+  );
 }
