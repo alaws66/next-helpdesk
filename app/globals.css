@@ -61,8 +61,7 @@ button:hover {
 form {
   @apply 
     py-4 px-7 
-    bg-primary 
-    bg-opacity-5 
+    bg-[#e4e7ed]
     rounded-md 
     block 
     mx-auto 
