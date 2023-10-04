@@ -1,11 +1,6 @@
-import { TTicket } from '@/app';
+import { TParams, TTicket } from '@/app';
 import { notFound } from 'next/navigation';
 
-type TParams = {
-  params: {
-    id: string;
-  }
-}
 
 export async function generateMetadata({ params }: TParams) {
   const id = params.id

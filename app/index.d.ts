@@ -5,3 +5,9 @@ export type TTicket = {
   priority: string;
   user_email: string;
 }
+
+export type TParams = {
+  params: {
+    id: string;
+  }
+}
