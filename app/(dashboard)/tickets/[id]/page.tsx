@@ -7,6 +7,17 @@ type TParams = {
   }
 }
 
+export async function generateMetadata({ params }: TParams) {
+  const id = params.id
+
+  const res = await fetch(`http://localhost:4000/tickets/${id}`);
+  const ticket = await res.json();
+
+  return {
+    title: `Helpdesk | ${ticket.title}`
+  }
+}
+
 export async function generateStaticParams() {
   const res = await fetch('http://localhost:4000/tickets');
 
