@@ -1,14 +1,22 @@
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+
 import { ReactNode } from 'react';
+import { cookies } from 'next/headers';
+
+// components
 import Navbar from '../components/Navbar';
 
-export default function RootLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: ReactNode
 }) {
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.auth.getSession();
+
   return (
     <>
-      <Navbar />
+      {data.session ? <Navbar user={data.session.user} /> : <nav></nav>}
       {children}
     </>
   );

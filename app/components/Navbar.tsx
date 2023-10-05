@@ -1,8 +1,15 @@
+import { User } from '@supabase/supabase-js';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '@/public/logo.png';
+import LogoutButton from './LogoutButton';
 
-const Navbar = () => {
+type TUser = {
+  user: User
+}
+
+const Navbar = ({ user }: TUser) => {
   return (
     <nav>
       <Image
@@ -15,7 +22,10 @@ const Navbar = () => {
       <h1>Helpdesk</h1>
       <Link href="/">Dashboard</Link>
       <Link href="/tickets">Tickets</Link>
-      <Link href="/tickets/create">Create</Link>
+      <Link href="/tickets/create" className="mr-auto">Create</Link>
+
+      {user && <span>Hello, {user.email}</span>}
+      <LogoutButton />
     </nav>
   );
 }
