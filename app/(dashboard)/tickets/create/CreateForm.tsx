@@ -15,15 +15,22 @@ export default function CreateForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    const newTicket = { title, body, priority, user_email: 'yoshi@netninja.dev' }
+    const ticket = { title, body, priority }
 
-    const res = await fetch('http://localhost:4000/tickets', {
+    const res = await fetch('http://localhost:3000/api/tickets', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(newTicket)
+      body: JSON.stringify(ticket)
     });
 
-    if (res.status === 201) {
+    const data = await res.json();
+
+    if (data.error) {
+      console.log(data.error.message);
+      setIsLoading(false);
+    }
+
+    if (data.data) {
       router.refresh();
       router.push('/tickets');
     }
